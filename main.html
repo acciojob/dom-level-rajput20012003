@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-	<ul>
-		<li>Item 1</li>
-		<li>Item 2</li>
-		<li>Item 3</li>
-		<li>Item 4</li>
-		<li id="level">Item 5</li>
-		<li>Item 6</li>
-		<li>Item 7</li>
-		<li>Item 8</li>
-		<li>Item 9</li>
-		<li>Item 10</li>
-	</ul>
-    <script type="text/javascript" src="./script.js">
-</script>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the element with id 'level'
+    const targetElement = document.getElementById('level');
+
+    // Initialize a counter for DOM level
+    let domLevel = 0;
+
+    // Traverse through the parent elements until reaching the root html element
+    let parent = targetElement;
+    while (parent !== document.documentElement) {
+        parent = parent.parentElement;
+        domLevel++;
+    }
+
+    // Display the DOM level using alert
+    alert("The level of the element is: " + domLevel);
+});
